@@ -22,7 +22,6 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :birthday
-    validates :accepted
+    validates :accepted, acceptance: true
   end
-
 end
