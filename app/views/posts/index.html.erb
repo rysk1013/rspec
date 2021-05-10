@@ -1,16 +1,4 @@
-<header>
-  <div class="header-wrapper">
-    <a href="#">
-      <div class="logo"></div>
-    </a>
-    <div class="header-nav">
-      <ul class="header-lists">
-        <li class="header-list"><%= link_to "新規登録", new_user_registration_path %></li>
-        <li class="header-list"><%= link_to "ログイン", new_user_session_path %></li>
-      </ul>
-    </div>
-  </div>
-</header>
+<%= render "shared/header" %>
 
 <main>
   <div class="container">
