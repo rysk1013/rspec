@@ -1,8 +1,8 @@
 <header>
   <div class="header-wrapper">
-    <a href="#">
+    <%= link_to root_path do %>
       <div class="logo"></div>
-    </a>
+    <% end %>
     <div class="header-nav">
       <ul class="header-lists">
         <li class="header-list"><%= link_to "新規登録", new_user_registration_path %></li>
