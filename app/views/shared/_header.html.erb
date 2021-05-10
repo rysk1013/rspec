@@ -5,8 +5,12 @@
     <% end %>
     <div class="header-nav">
       <ul class="header-lists">
-        <li class="header-list"><%= link_to "新規登録", new_user_registration_path %></li>
-        <li class="header-list"><%= link_to "ログイン", new_user_session_path %></li>
+        <% if user_signed_in? %>
+          <li class="header-list"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li class="header-list"><%= link_to "新規登録", new_user_registration_path %></li>
+          <li class="header-list"><%= link_to "ログイン", new_user_session_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>
