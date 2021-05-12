@@ -186,6 +186,11 @@ margin-bottom: 30px;
   margin: 0 auto;
 }
 
+.post-form-wrapper label {
+  display: block;
+  margin-bottom: 5px;
+}
+
 .textarea-default {
   background-color: #fff;
   border: 1px solid #333;
