@@ -1,0 +1,17 @@
+<div class="post-form-wrapper">
+  <%= form_with model: @post, local: true do |f| %>
+    <div class="field">
+      <%= f.label :image, "画像" %>
+      <%= f.file_field :image %>
+    </div>
+
+    <div class="field">
+      <%= f.label :text, "投稿" %>
+      <%= f.text_area :text, class: "textarea-default", cols: "30", rows: "5" %>
+    </div>
+
+    <div class="submit">
+      <%= f.submit "投稿する", class: "submit-btn" %>
+    </div>
+  <% end %>
+</div>

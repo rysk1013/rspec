@@ -1,13 +1,13 @@
 <div class="post">
   <div class="post-upper">
     <span class="icon"></span>
-    <span class="post-user-name">ユーザー１</span>
+    <span class="post-user-name"><%= post.user.nickname %></span>
   </div>
   <div class="post-lower">
-    <span class="post-lower-left"></span>
+    <%= image_tag post.image, class: "post-lower-left post-img" if post.image.attached? %>
     <div class="post-lower-right">
       <p>
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+        <%= post.text %>
       </p>
       <div class="post-nav">
       <div class="likes">

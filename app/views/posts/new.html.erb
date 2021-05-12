@@ -5,17 +5,15 @@
     <div class="side-bar">
       <ul class="side-lists">
         <li class="list">
-          <%= link_to "投稿する", new_post_path %>
+          <a href="#">お知らせ</a>
         </li>
         <li class="list">
-          <a href="#">お知らせ</a>
+          <%= link_to "戻る", root_path %>
         </li>
       </ul>
     </div>
     <div class="main-wrapper">
-      <div class="posts">
-        <%= render partial: 'post', collection: @posts %>
-      </div>
+      <%= render 'form' %>
     </div>
   </div>
 </main>
