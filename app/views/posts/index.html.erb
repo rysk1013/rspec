@@ -2,8 +2,21 @@
 
 <main>
   <div class="container">
-    <div class="side-bar"></div>
-    <div class="main-wrapper"></div>
+    <div class="side-bar">
+      <ul class="side-lists">
+        <li class="list">
+          <a href="#">投稿する</a>
+        </li>
+        <li class="list">
+          <a href="#">お知らせ</a>
+        </li>
+      </ul>
+    </div>
+    <div class="main-wrapper">
+      <div class="posts">
+        <%= render 'post' %>
+      </div>
+    </div>
   </div>
 </main>
 
