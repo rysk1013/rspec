@@ -122,11 +122,12 @@ margin-bottom: 30px;
   line-height: 50px;
 }
 
-.post-lower-left {
+.post-img {
   background-color: #fff;
   width: 280px;
   height: 280px;
   margin: 0 auto 20px;
+  display: block;
 }
 
 .post-lower-right p {
