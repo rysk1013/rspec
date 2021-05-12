@@ -92,7 +92,6 @@ main {
 
 .post {
   background-color: #98b9c3;
-  height: 380px;
   padding: 10px;
 }
 
@@ -123,19 +122,11 @@ margin-bottom: 30px;
   line-height: 50px;
 }
 
-.post-lower {
-  display: flex;
-  justify-content: space-between;
-}
-
 .post-lower-left {
   background-color: #fff;
   width: 280px;
   height: 280px;
-}
-
-.post-lower-right {
-  width: calc(100% - 300px);
+  margin: 0 auto 20px;
 }
 
 .post-lower-right p {
