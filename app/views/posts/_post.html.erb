@@ -2,6 +2,16 @@
   <div class="post-upper">
     <span class="icon"></span>
     <span class="post-user-name"><%= post.user.nickname %></span>
+    <div class="post-lists">
+      <% if user_signed_in? && post.user_id == current_user.id %>
+        <span>▼
+          <ul>
+            <li><%= link_to "編集", edit_post_path(post), class: "edit" %></li>
+            <li><a href="#" class="delete">削除</a></li>
+          </ul>
+        </span>
+      <% end %>
+    </div>
   </div>
   <div class="post-lower">
     <%= image_tag post.image, class: "post-lower-left post-img" if post.image.attached? %>

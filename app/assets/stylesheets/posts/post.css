@@ -122,6 +122,46 @@ margin-bottom: 30px;
   line-height: 50px;
 }
 
+.post-lists {
+  margin: 0 30px 0 auto;
+  position: relative;
+}
+
+.post-lists span {
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+}
+
+.post-lists span:hover ul {
+  display: block;
+}
+
+.post-lists ul {
+  background-color: #333;
+  width: 50px;
+  color: #eee;
+  position: absolute;
+  left: -15px;
+  display: none;
+}
+
+.post-lists li {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.edit {
+  background-color: #00ff00;
+  display: block;
+}
+
+.delete {
+  background-color: #ff0000;
+  display: block;
+}
+
 .post-img {
   background-color: #fff;
   width: 280px;
