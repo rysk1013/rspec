@@ -43,7 +43,6 @@ header {
 .side-bar {
   background-color: #a9a9a9;
   width: 300px;
-  min-height: calc(100vh - 180px);
   padding: 10px;
 }
 
@@ -72,7 +71,7 @@ main {
   padding: 20px 0;
 }
 
-.container {
+.index-container {
   width: 80%;
   margin: 0 auto;
   display: flex;
@@ -239,6 +238,122 @@ margin-bottom: 30px;
   background-color: #fff;
   border: 1px solid #333;
   padding: 8px;
+}
+
+/* 投稿詳細 */
+.post-show-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.show-upper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comments-wrapper {
+  background-color: #a9a9a9;
+  min-height: 300px;
+  padding: 10px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-form {
+  background-color: #98b9c3;
+  width: 300px;
+  padding: 10px;
+}
+
+.comment-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.comments-container {
+  background-color: #98b9c3;
+  width: calc(100% - 320px);
+  padding: 10px;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.user-box {
+  display: flex;
+}
+
+.user-icon {
+  background-color: #fff;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.user-name {
+  color: #333;
+  font-size: 15px;
+  line-height: 30px;
+}
+
+.text p {
+  background-color: #00ff00;
+  width: 30%;
+  padding: 10px;
+  margin-left: 50px;
+  border-radius: 7px;
+  position: relative;
+}
+
+.text p::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: -20px;
+  border-top: 9px solid transparent;
+  border-right: 13px solid #00ff7f;
+  border-bottom: 9px solid transparent;
+  border-left: 9px solid transparent;
+}
+
+.self {
+  flex-direction: row-reverse;
+}
+
+.self .user-icon {
+  margin: 0 0 0 10px;
+}
+
+.self-text {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 50px;
+}
+
+.self-text p::before {
+  display: none;
+}
+
+.self-text p::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: -20px;
+  border-top: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 13px solid #00ff7f;
 }
 
 /* フッター */

@@ -1,0 +1,64 @@
+<%= render "shared/header" %>
+
+<main>
+  <div class="post-show-container">
+    <div class="show-upper">
+      <div class="side-bar">
+        <ul class="side-lists">
+          <li class="list">
+            <a href="#">お知らせ</a>
+          </li>
+          <li class="list">
+            <%= link_to "戻る", root_path %>
+          </li>
+        </ul>
+      </div>
+      <div class="main-wrapper">
+        <%= render partial: 'post', locals: {post: @post} %>
+      </div>
+    </div>
+    <div class="comments-wrapper">
+      <div class="comment-form">
+        <label for="text">コメント
+          <textarea class="textarea-default" rows="8"></textarea>
+        </label>
+        <div class="submit">
+          <input type="submit" class="submit-btn">
+        </div>
+      </div>
+      <div class="comments-container">
+        <div class="comment">
+          <div class="user-box">
+            <div class="user-icon"></div>
+            <div class="user-name">ユーザー１</div>
+          </div>
+          <div class="text">
+            <p>コメント</p>
+          </div>
+        </div>
+
+        <div class="comment">
+          <div class="user-box self">
+            <div class="user-icon"></div>
+            <div class="user-name">ユーザー１</div>
+          </div>
+          <div class="text self-text">
+            <p>コメント</p>
+          </div>
+        </div>
+
+        <div class="comment">
+          <div class="user-box">
+            <div class="user-icon"></div>
+            <div class="user-name">ユーザー１</div>
+          </div>
+          <div class="text">
+            <p>コメント</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= render "shared/footer" %>
