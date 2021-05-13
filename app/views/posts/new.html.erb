@@ -13,7 +13,7 @@
       </ul>
     </div>
     <div class="main-wrapper">
-      <%= render 'form' %>
+      <%= render partial: 'form', locals: {post: @post} %>
     </div>
   </div>
 </main>
