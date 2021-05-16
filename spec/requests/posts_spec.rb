@@ -47,4 +47,13 @@ RSpec.describe "PostsController", type: :request do
       expect(response.status).to eq 200
     end
   end
+
+  describe 'POST #create' do
+    it 'createアクションにリクエストすると正常にレスポンスが返ってくる' do
+      user = FactoryBot.create(:user)
+      sign_in user
+      post posts_path, params: {post: FactoryBot.attributes_for(:post)}
+      expect(response.status).to eq 302
+    end
+  end
 end
