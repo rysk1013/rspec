@@ -38,4 +38,13 @@ RSpec.describe "PostsController", type: :request do
       expect(response.body).to include("test_image.png")
     end
   end
+
+  describe 'GET #new' do
+    it 'newアクションにリクエストすると正常にレスポンスが返ってくる' do
+      user = FactoryBot.create(:user)
+      sign_in user
+      get new_post_path
+      expect(response.status).to eq 200
+    end
+  end
 end
