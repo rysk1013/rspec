@@ -16,7 +16,7 @@ RSpec.describe "新規投稿", type: :system do
       image_path = Rails.root.join('public/images/test_image.png')
       attach_file('post[image]', image_path)
       fill_in '投稿', with: @post_text
-      #投稿ボタンを押す送信した値がDBに保存されていることを確認
+      #投稿ボタンを押すと送信した値がDBに保存されていることを確認
       expect{
         find('input[name="commit"]').click
       }.to change{Post.count}.by(1)
@@ -44,7 +44,7 @@ RSpec.describe '投稿編集', type: :system do
   end
 
   context '投稿編集できるとき' do
-    it 'ログインユーザーとpost_idが一致すれば編集・更新できる' do
+    it 'ログインユーザーと投稿のuser_idが一致すれば編集・更新できる' do
       #サインインする
       sign_in(@post.user)
       #編集ページヘのリンクを確認
@@ -86,12 +86,62 @@ RSpec.describe '投稿編集', type: :system do
       expect(page).to have_content(@post.text)
     end
 
-    it 'ログインユーザーと投稿のuser_idが一致しないと編集へのリンクが表示されない' do
-      #投稿とは別のユーザー作成
+    it 'ログインユーザーと投稿のuser_idが一致しないと▼が表示されない' do
+      #投稿と別のユーザー作成
       another_user = FactoryBot.create(:user)
       #作成したユーザーでログイン
       sign_in(another_user)
       #投稿にリンクを表示するマークがないことを確認
+      expect(page).to have_no_content('▼')
+    end
+
+    it 'ログインしていないと▼が表示されない' do
+      #トップページに移動
+      visit root_path
+      #投稿にリンクが無いことを確認する
+      expect(page).to have_no_content('▼')
+    end
+  end
+end
+
+RSpec.describe '投稿削除', type: :system do
+  before do
+    @post = FactoryBot.create(:post)
+  end
+
+  context '投稿削除できるとき' do
+    it 'ログインユーザーと投稿のuser_idが一致すれば削除できる' do
+      #サインインする
+      sign_in(@post.user)
+      #削除ボタンの確認
+      expect(
+        find('.post-lists').find('span').hover
+      ).to have_link '削除', href: post_path(@post)
+      #投稿を削除するリンクを押すとDBが1減ることを確認
+      expect {
+        find('.post-lists').find('span').hover.find_link('削除', href: post_path(@post)).click
+      }.to change{Post.count}.by(-1)
+      #投稿一覧ページに遷移しているか確認
+      expect(current_path).to eq root_path
+      #削除した投稿の内容が表示されていないか確認
+      expect(page).to have_no_content("#{@post.text}")
+    end
+  end
+
+  context '投稿削除できないとき' do
+    it 'ログインユーザーと投稿のuser_idが一致しないと▼が表示されない' do
+      #投稿と別のユーザーの作成
+      another_user = FactoryBot.create(:user)
+      #作成したユーザーでログイン
+      sign_in(another_user)
+      #投稿にリンクを表示するマークがないことを確認
+      expect(page).to have_no_content('▼')
+    end
+
+    it 'ログインしていないと▼が表示されない' do
+      #トップページに移動
+      visit root_path
+      #投稿にリンクが無いことを確認する
       expect(page).to have_no_content('▼')
     end
   end
