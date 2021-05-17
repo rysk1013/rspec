@@ -37,3 +37,45 @@ RSpec.describe "新規投稿", type: :system do
     end
   end
 end
+
+RSpec.describe '投稿編集', type: :system do
+  before do 
+    @post = FactoryBot.create(:post)
+  end
+
+  context '投稿編集できるとき' do
+    it 'ログインユーザーとpost_idが一致すれば編集・更新できる' do
+      #サインインする
+      sign_in(@post.user)
+      #投稿編集画面へ移動
+      visit edit_post_path(@post)
+      #投稿内容を変更する
+      edit_text = @post.text + 'aaa'
+      fill_in '投稿', with: edit_text
+      #投稿ボタンを押す
+      find('input[name="commit"]').click
+      #投稿一覧ページに遷移していることを確認
+      expect(current_path).to eq root_path
+      #編集した値が表示されてことを確認
+      expect(page).to have_content(edit_text)
+    end
+  end
+
+  context '投稿編集できないとき' do
+    it 'テキストが空では更新できない' do
+      #サインインする
+      sign_in(@post.user)
+      #投稿編集画面へ移動
+      visit edit_post_path(@post)
+      #投稿内容を変更する
+      edit_text = @post.text = ''
+      fill_in '投稿', with: edit_text
+      #投稿ボタンを押す
+      find('input[name="commit"]').click
+      #投稿編集ページにままであることを確認
+      expect(current_path).to eq post_path(@post)
+      #投稿フォームには変更前の内容が表示されている
+      expect(page).to have_content(@post.text)
+    end
+  end
+end
