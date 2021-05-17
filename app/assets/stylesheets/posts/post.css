@@ -211,7 +211,7 @@ margin-bottom: 30px;
 }
 
 /* 投稿フォーム */
-.post-new-container {
+.post-form-container {
   width: 80%;
   margin: 0 auto;
   display: flex;
