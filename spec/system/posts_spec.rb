@@ -47,6 +47,10 @@ RSpec.describe '投稿編集', type: :system do
     it 'ログインユーザーとpost_idが一致すれば編集・更新できる' do
       #サインインする
       sign_in(@post.user)
+      #編集ページヘのリンクを確認
+      expect(
+        find('.post-lists').find('span').hover
+      ).to have_link '編集', href: edit_post_path(@post)
       #投稿編集画面へ移動
       visit edit_post_path(@post)
       #投稿内容を変更する
@@ -65,6 +69,10 @@ RSpec.describe '投稿編集', type: :system do
     it 'テキストが空では更新できない' do
       #サインインする
       sign_in(@post.user)
+      #編集ページヘのリンクを確認
+      expect(
+        find('.post-lists').find('span').hover
+      ).to have_link '編集', href: edit_post_path(@post)
       #投稿編集画面へ移動
       visit edit_post_path(@post)
       #投稿内容を変更する
