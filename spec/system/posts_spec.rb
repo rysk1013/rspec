@@ -85,5 +85,14 @@ RSpec.describe '投稿編集', type: :system do
       #投稿フォームには変更前の内容が表示されている
       expect(page).to have_content(@post.text)
     end
+
+    it 'ログインユーザーと投稿のuser_idが一致しないと編集へのリンクが表示されない' do
+      #投稿とは別のユーザー作成
+      another_user = FactoryBot.create(:user)
+      #作成したユーザーでログイン
+      sign_in(another_user)
+      #投稿にリンクを表示するマークがないことを確認
+      expect(page).to have_no_content('▼')
+    end
   end
 end
