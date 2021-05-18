@@ -21,8 +21,13 @@
       </p>
       <div class="post-nav">
       <div class="likes">
-        <a href="#">add like</a>
-        <span>0</span>
+        <% if user_signed_in? && Like.find_by(post_id: post.id, user_id: current_user.id) %>
+          <% already_liked = Like.find_by(post_id: post.id, user_id: current_user.id) %>
+          <%= link_to 'remove like', post_like_path(post, already_liked), method: :delete %>
+        <% else %>
+          <%= link_to 'add like', post_likes_path(post.id), method: :post %>
+        <% end %>
+        <span><%= post.likes.count %></span>
       </div>
       <div class="comments">
         <a href="#">comments</a>
