@@ -21,8 +21,8 @@
       </p>
       <div class="post-nav">
       <div class="likes">
-        <% if user_signed_in? && Like.find_by(post_id: post.id, user_id: current_user.id) %>
-          <% already_liked = Like.find_by(post_id: post.id, user_id: current_user.id) %>
+        <% if user_signed_in? && current_user.liked?(post) %>
+          <% already_liked = find_liked(post, current_user) %>
           <%= link_to 'remove like', post_like_path(post, already_liked), method: :delete %>
         <% else %>
           <%= link_to 'add like', post_likes_path(post.id), method: :post %>
