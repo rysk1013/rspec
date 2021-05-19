@@ -27,4 +27,8 @@ class User < ApplicationRecord
     validates :birthday
     validates :accepted, acceptance: true
   end
+
+  def liked?(post)
+    self.likes.exists?(post_id: post.id)
+  end
 end
