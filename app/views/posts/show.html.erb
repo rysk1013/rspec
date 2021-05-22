@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="comments-wrapper">
-      <%= form_with model: [@post, @comment], locals: true do |f| %>
+      <%= form_with model: [@post, @comment], local: true do |f| %>
         <div class="comment-form">
           <div class="field">
             <%= f.label :text, "コメント" %>
