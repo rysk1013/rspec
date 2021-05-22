@@ -18,14 +18,18 @@
       </div>
     </div>
     <div class="comments-wrapper">
-      <div class="comment-form">
-        <label for="text">コメント
-          <textarea class="textarea-default" rows="8"></textarea>
-        </label>
-        <div class="submit">
-          <input type="submit" class="submit-btn">
+      <%= form_with model: [@post, @comment], locals: true do |f| %>
+        <div class="comment-form">
+          <div class="field">
+            <%= f.label :text, "コメント" %>
+            <%= f.text_area :text, class: "textarea-default", rows: '8' %>
+          </div>
+          <div class="submit">
+            <%= f.submit "送信", class: "submit-btn" %>
+          </div>
         </div>
-      </div>
+      <% end %>
+
       <div class="comments-container">
         <div class="comment">
           <div class="user-box">
