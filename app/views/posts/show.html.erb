@@ -29,37 +29,31 @@
           </div>
         </div>
       <% end %>
-
+      
       <div class="comments-container">
-        <div class="comment">
-          <div class="user-box">
-            <div class="user-icon"></div>
-            <div class="user-name">ユーザー１</div>
-          </div>
-          <div class="text">
-            <p>コメント</p>
-          </div>
-        </div>
-
-        <div class="comment">
-          <div class="user-box self">
-            <div class="user-icon"></div>
-            <div class="user-name">ユーザー１</div>
-          </div>
-          <div class="text self-text">
-            <p>コメント</p>
-          </div>
-        </div>
-
-        <div class="comment">
-          <div class="user-box">
-            <div class="user-icon"></div>
-            <div class="user-name">ユーザー１</div>
-          </div>
-          <div class="text">
-            <p>コメント</p>
-          </div>
-        </div>
+        <% @comments.each do |comment| %>
+          <% if user_signed_in? && comment.user_id != @post.user_id %>
+            <div class="comment">
+              <div class="user-box">
+                <div class="user-icon"></div>
+                <div class="user-name"><%= comment.user.nickname %></div>
+              </div>
+              <div class="text">
+                <p><%= comment.text %></p>
+              </div>
+            </div>
+          <% else %>
+            <div class="comment posted-user">
+              <div class="user-box self">
+                <div class="user-icon"></div>
+                <div class="user-name"><%= comment.user.nickname %></div>
+              </div>
+              <div class="text self-text">
+                <p><%= comment.text %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
