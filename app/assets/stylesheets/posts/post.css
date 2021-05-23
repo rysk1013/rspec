@@ -39,6 +39,10 @@ header {
   padding: 15px;
 }
 
+.login-user {
+  line-height: 50px;
+}
+
 /* サイド */
 .side-bar {
   background-color: #a9a9a9;
