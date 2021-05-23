@@ -41,6 +41,9 @@
               <div class="text">
                 <p><%= comment.text %></p>
               </div>
+              <div class="delete-comment">
+                <a href="#">delete</a>
+              </div>
             </div>
           <% else %>
             <div class="comment posted-user">
@@ -50,6 +53,9 @@
               </div>
               <div class="text self-text">
                 <p><%= comment.text %></p>
+              </div>
+              <div class="delete-comment self-delete">
+                <a href="#">delete</a>
               </div>
             </div>
           <% end %>
