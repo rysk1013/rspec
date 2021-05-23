@@ -41,9 +41,11 @@
               <div class="text">
                 <p><%= comment.text %></p>
               </div>
-              <div class="delete-comment">
-                <a href="#">delete</a>
-              </div>
+                <div class="delete-comment">
+                  <% if user_signed_in? && @post.user_id == current_user.id %>
+                    <%= link_to 'delete', post_comment_path(@post.id, comment.id), method: :delete %>
+                  <% end %>
+                </div>
             </div>
           <% else %>
             <div class="comment posted-user">
@@ -55,7 +57,7 @@
                 <p><%= comment.text %></p>
               </div>
               <div class="delete-comment self-delete">
-                <a href="#">delete</a>
+                <%= link_to 'delete', post_comment_path(@post.id, comment.id), method: :delete %>
               </div>
             </div>
           <% end %>
