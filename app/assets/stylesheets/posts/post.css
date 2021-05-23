@@ -39,6 +39,10 @@ header {
   padding: 15px;
 }
 
+.login-user {
+  line-height: 50px;
+}
+
 /* サイド */
 .side-bar {
   background-color: #a9a9a9;
@@ -361,6 +365,26 @@ margin-bottom: 30px;
   border-right: 9px solid transparent;
   border-bottom: 9px solid transparent;
   border-left: 13px solid #00ff7f;
+}
+
+.delete-comment {
+ 
+}
+
+.delete-comment a {
+  background-color: #ff0000;
+  color: #fff;
+  width: 60px;
+  font-size: 15px;
+  text-align: center;
+  display: block;
+  padding: 2px;
+  margin-left: 222px;
+  border-radius: 3px;
+}
+
+.self-delete a {
+  margin: 0 50px 0 auto;
 }
 
 /* フッター */

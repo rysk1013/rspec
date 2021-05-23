@@ -32,7 +32,7 @@
       
       <div class="comments-container">
         <% @comments.each do |comment| %>
-          <% if user_signed_in? && comment.user_id != @post.user_id %>
+          <% if comment.user_id != @post.user_id %>
             <div class="comment">
               <div class="user-box">
                 <div class="user-icon"></div>
@@ -41,6 +41,11 @@
               <div class="text">
                 <p><%= comment.text %></p>
               </div>
+                <div class="delete-comment">
+                  <% if check_user(@post, current_user) %>
+                    <%= link_to 'delete', post_comment_path(@post.id, comment.id), method: :delete %>
+                  <% end %>
+                </div>
             </div>
           <% else %>
             <div class="comment posted-user">
@@ -50,6 +55,11 @@
               </div>
               <div class="text self-text">
                 <p><%= comment.text %></p>
+              </div>
+              <div class="delete-comment self-delete">
+                <% if check_user(@post, current_user) %>
+                  <%= link_to 'delete', post_comment_path(@post.id, comment.id), method: :delete %>
+                <% end %>
               </div>
             </div>
           <% end %>

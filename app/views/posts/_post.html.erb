@@ -30,8 +30,8 @@
         <span><%= post.likes.count %></span>
       </div>
       <div class="comments">
-        <a href="#">comments</a>
-        <span>0</span>
+        <%= link_to 'comment', post_path(post.id) %>
+        <span><%= post.comments.count %></span>
       </div>
       <div class="post-show">
         <%= link_to "show", post_path(post.id) %>
