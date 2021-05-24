@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_post, only: [:create, :destroy]
 
   def create
@@ -7,7 +8,7 @@ class CommentsController < ApplicationController
       redirect_to post_path(@post)
     else
       @comments = @post.comments.includes(:user)
-      reidrect_back(fallback_location: post_path(@post))
+      redirect_back(fallback_location: post_path(@post))
     end
   end
 

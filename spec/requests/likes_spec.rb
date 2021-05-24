@@ -16,7 +16,7 @@ RSpec.describe 'Likes', type: :request do
     end
   end
 
-  describe 'POST #destroy' do
+  describe 'DELETE #destroy' do
     it 'destroyアクションにリクエストすると正常にレスポンスが返ってくる' do
       sign_in @user
       delete post_like_path(@post.id, @liked.id)

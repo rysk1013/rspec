@@ -11,8 +11,6 @@ RSpec.describe "いいね", type: :system do
       it 'ログインユーザーと投稿が存在すればいいねできる' do
         #サインインする
         sign_in(@user)
-        #投稿一覧ページ遷移しているか確認
-        expect(current_path).to eq root_path
         #投稿が存在しているか確認
         expect(page).to have_content(@post.text)
         expect(page).to have_content('add like')
