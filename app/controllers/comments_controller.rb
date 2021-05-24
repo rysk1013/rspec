@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
       redirect_to post_path(@post)
     else
       @comments = @post.comments.includes(:user)
-      reidrect_back(fallback_location: post_path(@post))
+      redirect_back(fallback_location: post_path(@post))
     end
   end
 
