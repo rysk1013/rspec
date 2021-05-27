@@ -21,9 +21,9 @@ RSpec.describe "いいね", type: :system do
         #一覧ページに遷移しているか確認
         expect(current_path).to eq root_path
         #ブラウザに'remove like'が表示されていることを確認
-        expect(page).to have_content('remove like')
+        expect(page).to have_link('remove like')
         #ブラウザに'add like'が表示されていないことを確認
-        expect(page).to have_no_content('add like')
+        expect(page).to have_no_link('add like')
       end
     end
   
@@ -55,7 +55,7 @@ RSpec.describe "いいね", type: :system do
         #投稿があるか確認する
         expect(page).to have_content(@post.text)
         #投稿に'remove like'が存在するか確認
-        expect(page).to have_content('remove like')
+        expect(page).to have_link('remove like')
         #'remove like'ボタンを押すとDBが1減ることを確認
         expect {
           find('.likes').find_link('remove like', href: post_like_path(@post.id, @liked.id)).click
@@ -63,9 +63,9 @@ RSpec.describe "いいね", type: :system do
         #投稿一覧ページに遷移したか確認
         expect(current_path).to eq root_path
         #投稿に'add like'が表示されているか確認
-        expect(page).to have_content('add like')
+        expect(page).to have_link('add like')
         #ブラウザに'add like'が表示されていないことを確認
-        expect(page).to have_no_content('remove like')
+        expect(page).to have_no_link('remove like')
       end
     end
   end
