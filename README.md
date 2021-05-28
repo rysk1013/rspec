@@ -1,24 +1,17 @@
-# README
+# RSpecの学習
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 目的
+- RSpec-railsを学習するために作成しました。
 
-Things you may want to cover:
+## 実装機能
+- ユーザー管理機能
+- 投稿管理機能
+- コメント管理機能
+- いいね管理機能
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用技術
+- HTML
+- CSS
+- Ruby: 2.6.5
+- Ruby on Rails: 6.0.0
+- RSpec(model/request/system)
